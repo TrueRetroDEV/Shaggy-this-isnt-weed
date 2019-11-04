@@ -1,0 +1,14 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ProjectileParameters : ScriptableObject {
+
+    public float speed;
+    public float maxSpeed;
+    public float minSpeed;
+    public float accelleration;
+    public float bounceAngle;
+    public float bounceMultiplier;
+
+}
