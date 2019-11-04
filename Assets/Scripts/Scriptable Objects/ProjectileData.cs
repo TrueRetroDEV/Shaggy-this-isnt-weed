@@ -15,11 +15,16 @@ public class ProjectileData : ScriptableObject {
     public LayerMask collisionLayers;
 
     [Header("Ricochet Parameters")]
-    public float bounceAngle;
-    public float bounceSpeedMultiplier;
+    [Range(0, 90)] public float bounceAngle;
+    [Range(0, 1)] public float bounceSpeedMultiplier;
 
     [Header("Destruction Conditions")]
     public float destroySpeedThreshold;
     public float lifeTime;
 
+    [Header("Sub-Objects")]
+    public GameObject trail;
+    public float trailLifeTime;
+    public GameObject debris;
+    public float debrisLifeTime;
 }

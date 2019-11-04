@@ -5,34 +5,53 @@ using UnityEngine;
 public class Player : BHealth {
 
     // PUBLIC VARAIBLES
+    public float playerSpeed;
+    public float cameraSize;
+
     public WeaponData[] weapons = new WeaponData[2];
     public int[] ammo = new int[2];
 
     // PRIVATE VARIABLES
-    float[] weaponTimers = new float[2];
+    CharacterController characterController;
+    Vector3 motionVector;
+
     bool[] weaponFireReady = new bool[2];
+    float[] weaponTimers = new float[2];
 
     float weaponSwitchTimer = 0;
     int selectedWeapon = 0;
-    
+
+    void Awake() {
+        characterController = GetComponent<CharacterController>();
+    }
+
     void PInput() {
         // WEAPON FIRING INPUT:
-        if (Input.GetAxis("Fire1") > 0.25f && ammo[0] > 0) {
-            if (weapons[0].singleShot) {
-                if (weaponFireReady[0]) {
-                    weaponFireReady[0] = false;
-                    StartCoroutine(PShoot(0));
+        int primaryFire = -1;
+
+        if (weapons[0].dualWield && weapons[1].dualWield) {
+            primaryFire = 0;
+        }
+        else {
+            primaryFire = selectedWeapon;
+        }
+
+        if (Input.GetAxis("Fire1") > 0.25f && ammo[primaryFire] > 0) {
+            if (weapons[primaryFire].singleShot) {
+                if (weaponFireReady[primaryFire]) {
+                    weaponFireReady[primaryFire] = false;
+                    StartCoroutine(PShoot(primaryFire));
                 }
             }
             else {
-                StartCoroutine(PShoot(0));
+                StartCoroutine(PShoot(primaryFire));
             }
         }
         else {
             weaponFireReady[0] = true;
         }
-        if (Input.GetAxis("Fire2") > 0.25f && weapons[1] && ammo[1] > 0) {
-            if (weapons[1].dualWield && weapons[1].singleShot) {
+        if (weapons[0].dualWield && weapons[1].dualWield && Input.GetAxis("Fire2") > 0.25f && weapons[1] && ammo[1] > 0) {
+            if (weapons[1].singleShot) {
                 if (weaponFireReady[1]) {
                     weaponFireReady[1] = false;
                     StartCoroutine(PShoot(1));
@@ -45,7 +64,12 @@ public class Player : BHealth {
         else {
             weaponFireReady[1] = true;
         }
-        
+
+        // PLAYER MOVEMENT:
+        motionVector.x = Input.GetAxis("Horizontal");
+        motionVector.z = Input.GetAxis("Vertical");
+        motionVector.Normalize();
+
         // WEAPON SWITCHING INPUT:
         SwitchWeapon((int)Mathf.Clamp(Input.GetAxis("Mouse ScrollWheel"), -1, 1));
     }
@@ -54,57 +78,30 @@ public class Player : BHealth {
         PInput();
         PLook();
         PCamera();
+        PMove();
 
         UpdateTimers();
     }
 
-    IEnumerator PShoot(int weapon) {
-        if (ammo[weapon] == 0) {
-            if (selectedWeapon == 1) {
-                selectedWeapon = 0;
-            }
-        }
-        else if (weaponTimers[weapon] <= 0){
-            WeaponData weaponData = weapons[selectedWeapon];
-            if (weaponData)
-            {
-                for (int i = 0; i < weaponData.roundsPerShot; i++)
-                {
-                    BProjectile projectile = Instantiate(weaponData.projectile, transform.position, transform.rotation, null).AddComponent<BProjectile>();
-                    projectile.Initialise(weaponData.projectileData, weaponData);
-
-                    if (weaponData.roundsPerShot > 1)
-                    {
-                        yield return new WaitForSeconds(weaponData.burstDelay);
-                    }
-                    else
-                    {
-                        yield return null;
-                    }
-
-                    ammo[weapon]--;
-                }
-
-                weaponTimers[weapon] = 60 / weaponData.rateOfFire;
-            }
-            else {
-                yield return null;
-            }
-        }
+    void PMove() {
+        characterController.Move(motionVector * playerSpeed * Time.deltaTime);
     }
 
     void PCamera() {
         Vector3 cameraPosition = CameraManager.Instance.MainCamera.transform.position;
-        Vector3 newPosition = Vector3.ClampMagnitude(Vector3.Lerp(Cursor.Instance.transform.position, transform.position, 0.5f), 3.0f);
+        Vector3 newPosition = transform.position + Vector3.ClampMagnitude(Vector3.Lerp(Cursor.Instance.transform.position - transform.position, Vector3.zero, 0.5f), 4.5f);
 
         newPosition.y = transform.position.y + 10.0f;
 
         CameraManager.Instance.MainCamera.transform.position = Vector3.Lerp(cameraPosition, newPosition, Time.deltaTime * 10.0f);
+        CameraManager.Instance.MainCamera.orthographicSize = Mathf.Lerp(CameraManager.Instance.MainCamera.orthographicSize, 10 + Mathf.Lerp(0, motionVector.magnitude * 100, Time.deltaTime * 3.0f), Time.deltaTime * 0.5f);
     }
 
     void PLook() {
+        Vector3 localCursorPosition = Cursor.Instance.transform.position - transform.position;
         Vector3 rot = transform.eulerAngles;
-        rot.y = Mathf.Atan2(Cursor.Instance.transform.position.x, Cursor.Instance.transform.position.z) * Mathf.Rad2Deg;
+
+        rot.y = Mathf.Atan2(localCursorPosition.x, localCursorPosition.z) * Mathf.Rad2Deg;
 
         transform.eulerAngles = rot;
     }
@@ -117,6 +114,45 @@ public class Player : BHealth {
         weaponSwitchTimer -= Time.deltaTime;
     }
 
+    IEnumerator PShoot(int weapon) {
+        if (ammo[weapon] == 0) {
+            if (selectedWeapon == 1) {
+                selectedWeapon = 0;
+            }
+        }
+        else if (weaponTimers[weapon] <= 0) {
+            WeaponData weaponData = weapons[weapon];
+
+            if (weaponData) {
+
+                for (int i = 0; i < weaponData.roundsPerShot; i++) {
+                    BProjectile projectile = Instantiate(weapons[weapon].projectile, transform.position, transform.rotation).AddComponent<BProjectile>();
+
+                    if (weapon == 0) {
+                        projectile.transform.position += transform.rotation * new Vector3(0.45f, 0, 0.6f);
+                    }
+                    else {
+                        projectile.transform.position += transform.rotation * new Vector3(-0.45f, 0, 0.6f);
+                    }
+
+                    projectile.transform.forward = Cursor.Instance.transform.position - projectile.transform.position;
+                    projectile.Initialise(weaponData.projectileData, weaponData);
+
+                    if (weaponData.roundsPerShot > 1 && weaponData.burstDelay != 0) {
+                        yield return new WaitForSeconds(weaponData.burstDelay);
+                    }
+
+                }
+
+                ammo[weapon]--;
+                weaponTimers[weapon] = 60 / weaponData.rateOfFire;
+            }
+            else {
+                yield return null;
+            }
+        }
+    }
+
     void SwitchWeapon(int value) {
         if (value != 0) {
             if (weapons[1] && weapons[1].dualWield) {
@@ -125,7 +161,7 @@ public class Player : BHealth {
             else if (weaponSwitchTimer <= 0) {
                 selectedWeapon = (int)Mathf.Repeat(selectedWeapon + value, weapons.Length);
 
-                weaponSwitchTimer = 0.15f;
+                weaponSwitchTimer = 0.33f;
             }
         }
     }

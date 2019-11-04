@@ -9,6 +9,7 @@ public class BProjectile : MonoBehaviour {
     WeaponData weaponStats;
 
     // INSTANCE VARIABLES
+    Transform trail;
     float currSpeed;
     float lifeTime;
 
@@ -16,17 +17,23 @@ public class BProjectile : MonoBehaviour {
         projectileStats = projectile;
         weaponStats = weapon;
 
+        if (projectile.trail) {
+            trail = Instantiate(projectile.trail, transform.position, transform.rotation).transform;
+        }
+
         StartProjectile();
     }
 
     public void StartProjectile() {
         currSpeed = Mathf.Clamp(projectileStats.startSpeed, projectileStats.minSpeed, projectileStats.maxSpeed);
 
+
         enabled = true;
     }
 
     void Update() {
         CheckCollision();
+        UpdateTrail();
 
         transform.position += transform.forward * currSpeed * Time.deltaTime;
 
@@ -45,7 +52,7 @@ public class BProjectile : MonoBehaviour {
         RaycastHit hit;
         Ray ray = new Ray(transform.position, transform.forward);
 
-        if (Physics.Raycast(ray.origin, ray.direction, out hit, currSpeed* Time.deltaTime, projectileStats.collisionLayers, QueryTriggerInteraction.Ignore)) {
+        if (Physics.Raycast(ray.origin, ray.direction, out hit, currSpeed * Time.deltaTime, projectileStats.collisionLayers, QueryTriggerInteraction.Ignore)) {
 
             transform.position = hit.point;
 
@@ -55,13 +62,20 @@ public class BProjectile : MonoBehaviour {
                 Hit(objectHealth);
             }
 
-            if (Vector3.Angle(ray.direction, hit.normal) > projectileStats.bounceAngle) {
+
+            if ((90 - (180 - Vector3.Angle(ray.direction, hit.normal))) > projectileStats.bounceAngle) {
                 DestroyProjectile();
             }
             else {
+                currSpeed *= projectileStats.bounceSpeedMultiplier;
+                
                 transform.forward = Vector3.Reflect(ray.direction, hit.normal);
             }
         }
+    }
+
+    void UpdateTrail() {
+        trail.SetPositionAndRotation(transform.position, transform.rotation);
     }
 
     void Hit(BHealth objHealth = null) {
@@ -71,6 +85,9 @@ public class BProjectile : MonoBehaviour {
     }
 
     public virtual void DestroyProjectile() {
+        if (trail) {
+            Destroy(trail.gameObject, projectileStats.trailLifeTime);
+        }
         Destroy(gameObject);
     }
 }

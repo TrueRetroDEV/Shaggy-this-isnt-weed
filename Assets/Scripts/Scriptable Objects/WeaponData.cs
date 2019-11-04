@@ -14,6 +14,7 @@ public class WeaponData : ScriptableObject {
     public float burstDelay;
     public bool singleShot;
     public bool dualWield;
+    public float weaponSpread;
 
     [Header("Projectile Parameters")]
     public GameObject projectile;

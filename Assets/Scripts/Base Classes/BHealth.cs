@@ -8,7 +8,7 @@ public class BHealth : MonoBehaviour
     public float health;
     public float maxHealth;
 
-    public virtual void Awake() {
+    public virtual void Start() {
         health = maxHealth;
     }
 
