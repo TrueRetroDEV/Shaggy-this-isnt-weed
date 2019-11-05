@@ -15,12 +15,12 @@ MonoBehaviour:
   startSpeed: 250
   minSpeed: 100
   maxSpeed: 250
-  accelleration: -50
+  accelleration: -10
   collisionLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  bounceAngle: 25
-  bounceSpeedMultiplier: 0.9
+  bounceAngle: 33
+  bounceSpeedMultiplier: 1
   destroySpeedThreshold: 100
   lifeTime: 0.08
   trail: {fileID: 33541733975028545, guid: c5c00042ccb9b20439b5b7c3bee90cb3, type: 3}

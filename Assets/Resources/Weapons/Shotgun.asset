@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a80562c9b7a65774196c5bb8c1093ee4, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
+  name: Shotgun
   damage: 5
   rateOfFire: 200
   roundsPerShot: 12
@@ -19,6 +20,9 @@ MonoBehaviour:
   singleShot: 1
   dualWield: 0
   weaponSpread: 10
+  defaultAmmo: 24
+  clipSize: 8
+  reloadTime: 3
   projectile: {fileID: 64854367180760658, guid: be7231dcb8d64284b91a8d2999d22a28,
     type: 3}
   projectileData: {fileID: 11400000, guid: d9a5062a0a0edbc42aa0b639e5c93791, type: 2}

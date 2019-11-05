@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a906455d03cc78347a101fce054c554c, type: 3}
   m_Name: Bullet
   m_EditorClassIdentifier: 
-  startSpeed: 250
-  minSpeed: 100
-  maxSpeed: 250
-  accelleration: -50
+  startSpeed: 500
+  minSpeed: 150
+  maxSpeed: 500
+  accelleration: -10
   collisionLayers:
     serializedVersion: 2
     m_Bits: 4294967295
   bounceAngle: 45
   bounceSpeedMultiplier: 0.9
   destroySpeedThreshold: 100
-  lifeTime: 0.65
+  lifeTime: 1
   trail: {fileID: 33541733975028545, guid: a815d56d973f35b4495214dc53fe76b3, type: 3}
   trailLifeTime: 0.05
   debris: {fileID: 0}

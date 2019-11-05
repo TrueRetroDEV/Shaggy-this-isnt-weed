@@ -22,4 +22,13 @@ public class Cursor : MonoBehaviour {
 
         return worldPosition;
     }
+
+    public static Quaternion LookToCursorRotation(Vector3 currPosition, Quaternion currRotation) {
+        Vector3 localCursorPosition = Cursor.Instance.transform.position - currPosition;
+        Vector3 rot = currRotation.eulerAngles;
+
+        rot.y = Mathf.Atan2(localCursorPosition.x, localCursorPosition.z) * Mathf.Rad2Deg;
+
+        return Quaternion.Euler(rot);
+    }
 }

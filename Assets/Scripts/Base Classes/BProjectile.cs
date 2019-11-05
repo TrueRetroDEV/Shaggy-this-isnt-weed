@@ -13,9 +13,11 @@ public class BProjectile : MonoBehaviour {
     float currSpeed;
     float lifeTime;
 
-    public void Initialise(ProjectileData projectile, WeaponData weapon) {
+    public void Initialise(ProjectileData projectile, WeaponData weapon, Vector3 position, Quaternion rotation) {
         projectileStats = projectile;
         weaponStats = weapon;
+
+        transform.SetPositionAndRotation(position, rotation);
 
         if (projectile.trail) {
             trail = Instantiate(projectile.trail, transform.position, transform.rotation).transform;
@@ -26,7 +28,6 @@ public class BProjectile : MonoBehaviour {
 
     public void StartProjectile() {
         currSpeed = Mathf.Clamp(projectileStats.startSpeed, projectileStats.minSpeed, projectileStats.maxSpeed);
-
 
         enabled = true;
     }
@@ -52,7 +53,7 @@ public class BProjectile : MonoBehaviour {
         RaycastHit hit;
         Ray ray = new Ray(transform.position, transform.forward);
 
-        if (Physics.Raycast(ray.origin, ray.direction, out hit, currSpeed * Time.deltaTime, projectileStats.collisionLayers, QueryTriggerInteraction.Ignore)) {
+        if (Physics.Raycast(ray.origin, ray.direction, out hit, (currSpeed * Time.deltaTime) + 0.5f, projectileStats.collisionLayers, QueryTriggerInteraction.Ignore)) {
 
             transform.position = hit.point;
 
