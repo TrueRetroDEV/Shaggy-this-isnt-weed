@@ -70,7 +70,7 @@ public class Player : BHealth {
                 weapons[i].weaponData = startWeapons[i];
             }
             weapons[i].ammo = startWeapons[i].defaultAmmo;
-            weapons[i].clipSizeOffset = CalculateClipSizeOffset(weapons[i].ammo, weapons[i].weaponData.clipSize);
+            weapons[i].clipSizeOffset = 0;//CalculateClipSizeOffset(weapons[i].ammo, weapons[i].weaponData.clipSize);
         }
     }
     

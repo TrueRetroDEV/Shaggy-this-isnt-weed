@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   bounceAngle: 45
   bounceSpeedMultiplier: 0.9
-  destroySpeedThreshold: 100
+  destroySpeedThreshold: 150
   lifeTime: 1
   trail: {fileID: 33541733975028545, guid: a815d56d973f35b4495214dc53fe76b3, type: 3}
   trailLifeTime: 0.05
