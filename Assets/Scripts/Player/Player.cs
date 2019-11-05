@@ -45,11 +45,25 @@ public class Player : BHealth {
         }
     }
 
+    bool hasCommonAmmoType {
+        get {
+            if (weapons[1].weaponData == null) {
+                return false;
+            }
+            else {
+                return weapons[0].weaponData.ammoType == weapons[1].weaponData.ammoType;
+            }
+        }
+    }
+
     void Awake() {
         Instance = this;
-
         characterController = GetComponent<CharacterController>();
 
+        PSetup();
+    }
+
+    void PSetup() {
         // Set default ammo for weapons.
         for (int i = 0; i < weapons.Length; i++) {
             if (startWeapons[i] != null) {
@@ -57,6 +71,12 @@ public class Player : BHealth {
             }
             weapons[i].ammo = startWeapons[i].defaultAmmo;
             weapons[i].clipSizeOffset = CalculateClipSizeOffset(weapons[i].ammo, weapons[i].weaponData.clipSize);
+        }
+        if (hasCommonAmmoType) {
+            int newAmmoCount = weapons[0].ammo + weapons[1].ammo;
+
+            weapons[0].ammo = newAmmoCount;
+            weapons[1].ammo = newAmmoCount;
         }
     }
     
@@ -200,6 +220,14 @@ public class Player : BHealth {
                 }
 
                 weapons[weaponNo].ammo--;
+                if (weapons[0].weaponData.ammoType == weapons[1].weaponData.ammoType) {
+                    if (weaponNo == 0) {
+                        weapons[1].ammo = weapons[0].ammo;
+                    }
+                    else {
+                        weapons[0].ammo = weapons[1].ammo;
+                    }
+                }
 
                 if (weapons[weaponNo].ammo % (weaponData.clipSize + weapons[weaponNo].clipSizeOffset) == 0) {
                     ReloadWeapon(weaponNo);
@@ -215,7 +243,6 @@ public class Player : BHealth {
     }
 
     public void PickupWeapon(WeaponData weaponData, int weaponAmmo) {
-
         if (weapons[1].weaponData == null) {
             weapons[1].weaponData = weaponData;
             weapons[1].ammo = weaponAmmo;
@@ -231,6 +258,13 @@ public class Player : BHealth {
             weapons[selectedWeapon].clipSizeOffset = CalculateClipSizeOffset(weaponAmmo, weaponData.clipSize);
             weapons[selectedWeapon].reloadingWeapon = false;
             weapons[selectedWeapon].nextFire = 0.0f;
+        }
+
+        if (hasCommonAmmoType) {
+            int newAmmoCount = weapons[0].ammo + weapons[1].ammo;
+
+            weapons[0].ammo = newAmmoCount;
+            weapons[1].ammo = newAmmoCount;
         }
     }
 

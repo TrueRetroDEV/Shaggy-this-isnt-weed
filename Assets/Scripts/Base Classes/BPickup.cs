@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BPickup : MonoBehaviour {
 
-    public float range;
+    public float range = 1;
 
     float delay = 0.5f;
     float holdTime = 0.0f;

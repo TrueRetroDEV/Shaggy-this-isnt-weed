@@ -5,8 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Weapon", menuName = "New Weapon", order = 1)]
 public class WeaponData : ScriptableObject {
 
+    public enum AmmoType {
+        Small,
+        Medium,
+        Shell,
+        Fuel,
+        Grenade_Frag,
+    }
+
     [Header("ID")]
-    public string name;
+    public new string name;
 
     [Header("Damage Settings")]
     public float damage;
@@ -20,6 +28,7 @@ public class WeaponData : ScriptableObject {
     public float weaponSpread;
 
     [Header("Ammunition")]
+    public AmmoType ammoType;
     public int defaultAmmo;
     public int clipSize;
     public float reloadTime;
@@ -27,5 +36,4 @@ public class WeaponData : ScriptableObject {
     [Header("Projectile Parameters")]
     public GameObject projectile;
     public ProjectileData projectileData;
-
 }

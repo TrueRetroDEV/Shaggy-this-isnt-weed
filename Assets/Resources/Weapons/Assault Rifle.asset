@@ -20,6 +20,7 @@ MonoBehaviour:
   singleShot: 0
   dualWield: 0
   weaponSpread: 7.5
+  ammoType: 1
   defaultAmmo: 300
   clipSize: 30
   reloadTime: 2

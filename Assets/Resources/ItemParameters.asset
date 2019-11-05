@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponPickup: {fileID: 4621184840922356673, guid: 35a43f91a2bb0204daafd63b76763600,
     type: 3}
+  healthPickup: {fileID: 4621184840922356673, guid: 7e4c17de49186924589a633be649981c,
+    type: 3}
+  ammoPickup: {fileID: 4621184840922356673, guid: 085d62b5df5527e44937016f30769279,
+    type: 3}
