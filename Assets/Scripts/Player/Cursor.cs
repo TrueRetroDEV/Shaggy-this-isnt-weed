@@ -27,7 +27,9 @@ public class Cursor : MonoBehaviour {
         Vector3 localCursorPosition = Cursor.Instance.transform.position - currPosition;
         Vector3 rot = currRotation.eulerAngles;
 
+        rot.x = 0;
         rot.y = Mathf.Atan2(localCursorPosition.x, localCursorPosition.z) * Mathf.Rad2Deg;
+        rot.z = 0;
 
         return Quaternion.Euler(rot);
     }

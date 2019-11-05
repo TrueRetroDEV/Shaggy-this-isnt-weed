@@ -34,7 +34,7 @@ public class Player : BHealth {
 
     float weaponSwitchTimer = 0;
 
-    bool isDualWielding {
+    public bool isDualWielding {
         get {
             if (weapons[1].weaponData == null) {
                 return false;
@@ -71,12 +71,6 @@ public class Player : BHealth {
             }
             weapons[i].ammo = startWeapons[i].defaultAmmo;
             weapons[i].clipSizeOffset = CalculateClipSizeOffset(weapons[i].ammo, weapons[i].weaponData.clipSize);
-        }
-        if (hasCommonAmmoType) {
-            int newAmmoCount = weapons[0].ammo + weapons[1].ammo;
-
-            weapons[0].ammo = newAmmoCount;
-            weapons[1].ammo = newAmmoCount;
         }
     }
     
@@ -220,14 +214,6 @@ public class Player : BHealth {
                 }
 
                 weapons[weaponNo].ammo--;
-                if (weapons[0].weaponData.ammoType == weapons[1].weaponData.ammoType) {
-                    if (weaponNo == 0) {
-                        weapons[1].ammo = weapons[0].ammo;
-                    }
-                    else {
-                        weapons[0].ammo = weapons[1].ammo;
-                    }
-                }
 
                 if (weapons[weaponNo].ammo % (weaponData.clipSize + weapons[weaponNo].clipSizeOffset) == 0) {
                     ReloadWeapon(weaponNo);
@@ -259,13 +245,6 @@ public class Player : BHealth {
             weapons[selectedWeapon].reloadingWeapon = false;
             weapons[selectedWeapon].nextFire = 0.0f;
         }
-
-        if (hasCommonAmmoType) {
-            int newAmmoCount = weapons[0].ammo + weapons[1].ammo;
-
-            weapons[0].ammo = newAmmoCount;
-            weapons[1].ammo = newAmmoCount;
-        }
     }
 
     void DropWeapon(PlayerWeapon weapon) {
@@ -278,6 +257,7 @@ public class Player : BHealth {
     void ReloadWeapon(int weaponData) {
         weapons[weaponData].reloadingWeapon = true;
         weapons[weaponData].nextFire = weapons[weaponData].weaponData.reloadTime;
+        weapons[weaponData].clipSizeOffset = 0;
     }
 
     void SwitchWeapon(int value) {
