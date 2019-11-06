@@ -46,40 +46,12 @@ public class UI : MonoBehaviour {
             currWeapons[0] = Player.Instance.weapons[0];
             currWeapons[1] = Player.Instance.weapons[1];
 
-            if (currWeapons[0].reloadingWeapon && currWeapons[1].reloadingWeapon || (currWeapons[0].ammo <= 0 && currWeapons[1].ammo <= 0)) {
-                clipText.text = string.Empty;
-
-                int noDigits = Mathf.FloorToInt(Mathf.Log10(currWeapons[0].weaponData.clipSize * currWeapons[1].weaponData.clipSize) + 1);
-                for (int i = 0; i < noDigits; i++) {
-                    clipText.text += '0';
-                }
-
-                ammoText.text = Mathf.Clamp(currWeapons[0].ammo - currWeapons[0].weaponData.clipSize, 0, Mathf.Infinity).ToString();
-            }
-            else {
-                int magazineSize = currWeapons[0].weaponData.clipSize + currWeapons[1].weaponData.clipSize;
-                int clips = ((currWeapons[0].ammo + currWeapons[1].ammo - 1) % magazineSize) + 1;
-
-                clipText.text = Mathf.Clamp(clips, 0, Mathf.Infinity).ToString();
-            }
+            ammoText.text = Mathf.Clamp(currWeapons[0].ammo + currWeapons[1].ammo, 0, Mathf.Infinity).ToString();
         }
         else {
             Player.PlayerWeapon currWeapon = Player.Instance.weapons[Player.Instance.selectedWeapon];
 
-            if (currWeapon.reloadingWeapon) {
-                clipText.text = string.Empty;
-
-                int noDigits = Mathf.FloorToInt(Mathf.Log10(currWeapon.weaponData.clipSize) + 1);
-                for (int i = 0; i < noDigits; i++) {
-                    clipText.text += '0';
-                }
-
-                ammoText.text = Mathf.Clamp(currWeapon.ammo - currWeapon.weaponData.clipSize, 0, Mathf.Infinity).ToString();
-            }
-            else {
-                int magazineSize = currWeapon.weaponData.clipSize;
-                clipText.text = Mathf.Clamp(((currWeapon.ammo - 1) % magazineSize) + 1, 0, Mathf.Infinity).ToString();
-            }
+            ammoText.text = currWeapon.ammo.ToString();
         }
     }
 }

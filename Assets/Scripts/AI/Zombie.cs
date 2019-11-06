@@ -21,6 +21,8 @@ public class Zombie : BHealth {
             Destroy(gameObject);
         }
 
+        target = transform.position - Vector3.up;
+
         zombieData = zombie;
 
         health = zombie.health;
@@ -51,7 +53,7 @@ public class Zombie : BHealth {
     public virtual void AIAttack() {
         if ((Player.Instance.transform.position - transform.position).sqrMagnitude <= zombieData.attackDistance && attackTimer <= 0.0f) {
             if (zombieData.projectile) {
-
+                
             }
             else {
                 Player.Instance.TakeDamage(zombieData.damage);
@@ -62,7 +64,22 @@ public class Zombie : BHealth {
     }
 
     void AIMove() {
-        SetTarget(Player.Instance.transform.position);
+        if (DayNightCycle.Instance.progress < 0.5f) {
+            if ((Player.Instance.transform.position - transform.position).sqrMagnitude <= 150) {
+                SetTarget(Player.Instance.transform.position);
+            }
+            else {
+                if ((target - transform.position).sqrMagnitude <= 9) {
+                    SetTarget(transform.position, 20.0f);
+                }
+            }
+
+        }
+        else {
+            SetTarget(Player.Instance.transform.position);
+
+        }
+
     }
 
 }

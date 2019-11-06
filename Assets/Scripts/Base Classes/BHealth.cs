@@ -16,7 +16,7 @@ public class BHealth : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void TakeDamage(float amount) {
+    public virtual void TakeDamage(float amount) {
         health -= amount;
 
         if (health < 0) {
