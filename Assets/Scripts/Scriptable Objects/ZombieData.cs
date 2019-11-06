@@ -16,4 +16,5 @@ public class ZombieData : ScriptableObject {
     public float damage;
     public float attackDistance;
     public float attackRate;
+    public GameObject projectile;
 }

@@ -193,10 +193,10 @@ public class Player : BHealth {
                     Vector3 spawnPosition = new Vector3();
 
                     if (weaponNo == 0) {
-                        spawnPosition = transform.position + (transform.rotation * new Vector3(0.45f, 0, 0.6f));
+                        spawnPosition = transform.position + (transform.rotation * new Vector3(0.45f, 0, 0.8f));
                     }
                     else {
-                        spawnPosition = transform.position + (transform.rotation * new Vector3(-0.45f, 0, 0.6f));
+                        spawnPosition = transform.position + (transform.rotation * new Vector3(-0.45f, 0, 0.8f));
                     }
                     
                     BProjectile projectile = Instantiate(weaponData.projectile).AddComponent<BProjectile>();

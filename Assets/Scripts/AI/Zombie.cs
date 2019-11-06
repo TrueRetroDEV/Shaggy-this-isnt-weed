@@ -14,6 +14,8 @@ public class Zombie : BHealth {
     // PRIVATE VARIABLES:
     Vector3 target;
 
+    float attackTimer = 0.0f;
+
     public void Setup(ZombieData zombie) {
         if ((navMeshAgent = GetComponent<NavMeshAgent>()) == null) {
             Destroy(gameObject);
@@ -47,9 +49,16 @@ public class Zombie : BHealth {
     }
 
     public virtual void AIAttack() {
-        if ((Player.Instance.transform.position - transform.position).sqrMagnitude <= zombieData.attackDistance) {
+        if ((Player.Instance.transform.position - transform.position).sqrMagnitude <= zombieData.attackDistance && attackTimer <= 0.0f) {
+            if (zombieData.projectile) {
 
+            }
+            else {
+                Player.Instance.TakeDamage(zombieData.damage);
+            }
+            attackTimer = 60 / zombieData.attackRate;
         }
+        attackTimer -= Time.deltaTime;
     }
 
     void AIMove() {
