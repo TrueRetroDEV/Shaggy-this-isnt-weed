@@ -10,6 +10,10 @@ public class ZombieData : ScriptableObject {
 
     [Header("Stats")]
     public float speed;
+    public float health;
+
+    [Header("Attacking")]
     public float damage;
+    public float attackDistance;
     public float attackRate;
 }

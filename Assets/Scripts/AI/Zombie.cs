@@ -14,12 +14,16 @@ public class Zombie : BHealth {
     // PRIVATE VARIABLES:
     Vector3 target;
 
-    public override void Start() {
+    public void Setup(ZombieData zombie) {
         if ((navMeshAgent = GetComponent<NavMeshAgent>()) == null) {
             Destroy(gameObject);
         }
 
-        base.Start();
+        zombieData = zombie;
+
+        health = zombie.health;
+        maxHealth = zombie.health;
+        navMeshAgent.speed = zombie.speed;
     }
 
     public virtual void SetTarget(Vector3 newTarget, float randomNoise = 0.0f) {
@@ -33,7 +37,7 @@ public class Zombie : BHealth {
         UpdateTarget();
     }
     void UpdateTarget() {
-        navMeshAgent.nextPosition = target;
+        navMeshAgent.destination = target;
     }
 
     void Update() {
