@@ -90,6 +90,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da48b71527cb7974ca6b03bdd9615cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 1
+  range: 2
   weapon: {fileID: 0}
   weaponAmmo: 0

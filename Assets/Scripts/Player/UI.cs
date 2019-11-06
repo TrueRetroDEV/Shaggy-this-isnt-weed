@@ -51,16 +51,16 @@ public class UI : MonoBehaviour {
 
                 int noDigits = Mathf.FloorToInt(Mathf.Log10(currWeapons[0].weaponData.clipSize * currWeapons[1].weaponData.clipSize) + 1);
                 for (int i = 0; i < noDigits; i++) {
-                    clipText.text += '-';
+                    clipText.text += '0';
                 }
 
-                ammoText.text = (currWeapons[0].ammo - currWeapons[0].weaponData.clipSize).ToString();
+                ammoText.text = Mathf.Clamp(currWeapons[0].ammo - currWeapons[0].weaponData.clipSize, 0, Mathf.Infinity).ToString();
             }
             else {
                 int magazineSize = currWeapons[0].weaponData.clipSize + currWeapons[1].weaponData.clipSize;
                 int clips = ((currWeapons[0].ammo + currWeapons[1].ammo - 1) % magazineSize) + 1;
 
-                clipText.text = clips.ToString();
+                clipText.text = Mathf.Clamp(clips, 0, Mathf.Infinity).ToString();
             }
         }
         else {
@@ -71,14 +71,14 @@ public class UI : MonoBehaviour {
 
                 int noDigits = Mathf.FloorToInt(Mathf.Log10(currWeapon.weaponData.clipSize) + 1);
                 for (int i = 0; i < noDigits; i++) {
-                    clipText.text += '-';
+                    clipText.text += '0';
                 }
 
-                ammoText.text = (currWeapon.ammo - currWeapon.weaponData.clipSize).ToString();
+                ammoText.text = Mathf.Clamp(currWeapon.ammo - currWeapon.weaponData.clipSize, 0, Mathf.Infinity).ToString();
             }
             else {
                 int magazineSize = currWeapon.weaponData.clipSize;
-                clipText.text = (((currWeapon.ammo - 1) % magazineSize) + 1).ToString();
+                clipText.text = Mathf.Clamp(((currWeapon.ammo - 1) % magazineSize) + 1, 0, Mathf.Infinity).ToString();
             }
         }
     }

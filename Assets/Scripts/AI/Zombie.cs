@@ -24,6 +24,7 @@ public class Zombie : BHealth {
         health = zombie.health;
         maxHealth = zombie.health;
         navMeshAgent.speed = zombie.speed;
+        navMeshAgent.stoppingDistance = zombie.attackDistance;
     }
 
     public virtual void SetTarget(Vector3 newTarget, float randomNoise = 0.0f) {
@@ -42,6 +43,13 @@ public class Zombie : BHealth {
 
     void Update() {
         AIMove();
+        AIAttack();
+    }
+
+    public virtual void AIAttack() {
+        if ((Player.Instance.transform.position - transform.position).sqrMagnitude <= zombieData.attackDistance) {
+
+        }
     }
 
     void AIMove() {

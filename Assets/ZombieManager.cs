@@ -19,7 +19,7 @@ public class ZombieManager : MonoBehaviour
         if (spawnTimer <= 0.0f) {
             SpawnZombie(zombieTypes[Random.Range(0, zombieTypes.Length - 1)], Player.Instance.transform.position + RandomDirection() * 60.0f);
 
-            spawnTimer = 10.0f;
+            spawnTimer = 3.0f;
         }
 
         spawnTimer -= Time.deltaTime;

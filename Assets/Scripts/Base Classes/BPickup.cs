@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class BPickup : MonoBehaviour {
 
-    public float range = 1;
+    public float range = 2;
 
-    float delay = 0.5f;
+    float delay = 0.3f;
     float holdTime = 0.0f;
 
     void Update() {
-
         if ((Player.Instance.transform.position - transform.position).sqrMagnitude < (range * range)) {
             if (Input.GetKeyUp(KeyCode.E)) {
                 holdTime = 0;

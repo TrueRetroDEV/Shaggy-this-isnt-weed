@@ -200,7 +200,13 @@ public class Player : BHealth {
                     }
                     
                     BProjectile projectile = Instantiate(weaponData.projectile).AddComponent<BProjectile>();
-                    projectile.Initialise(weaponData.projectileData, weaponData, spawnPosition, Cursor.LookToCursorRotation(spawnPosition, projectile.transform.rotation));
+                    projectile.Initialise(weaponData.projectileData, weaponData, spawnPosition, transform.rotation);
+
+                    foreach (Zombie zombie in ZombieManager.Instance.zombies) {
+                        if ((zombie.transform.position - Cursor.Instance.transform.position).sqrMagnitude <= 9) {
+                            projectile.transform.forward = zombie.transform.position - projectile.transform.position;
+                        }
+                    }
 
                     Vector3 rot = projectile.transform.eulerAngles;
                     rot.y += Random.Range(-weaponData.weaponSpread, weaponData.weaponSpread) / 2;

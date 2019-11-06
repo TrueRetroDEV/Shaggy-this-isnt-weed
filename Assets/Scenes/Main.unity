@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 12746493}
   - component: {fileID: 12746494}
+  - component: {fileID: 12746495}
   m_Layer: 0
   m_Name: Street Light
   m_TagString: Untagged
@@ -160,7 +161,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
-    m_Resolution: 1
+    m_Resolution: 0
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -181,6 +182,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &12746495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12746492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ade54defdc3c74b9dfce5e753b20ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &139214884
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 139214885}
   - component: {fileID: 139214886}
+  - component: {fileID: 139214887}
   m_Layer: 0
   m_Name: Street Light
   m_TagString: Untagged
@@ -229,7 +243,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
-    m_Resolution: 1
+    m_Resolution: 0
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -250,6 +264,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &139214887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139214884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ade54defdc3c74b9dfce5e753b20ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &151504006
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,6 +377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 151801460}
   - component: {fileID: 151801461}
+  - component: {fileID: 151801462}
   m_Layer: 0
   m_Name: Street Light
   m_TagString: Untagged
@@ -389,7 +416,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
-    m_Resolution: 1
+    m_Resolution: 0
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -410,6 +437,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &151801462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151801459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ade54defdc3c74b9dfce5e753b20ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1917,88 +1956,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729314530}
   m_CullTransparentMesh: 0
---- !u!1 &789567015
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 789567016}
-  - component: {fileID: 789567017}
-  - component: {fileID: 789567018}
-  m_Layer: 0
-  m_Name: Street Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &789567016
+--- !u!4 &789567016 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1131876491157369841, guid: e4a07522d4138e54d8d464c0327db394,
+    type: 3}
+  m_PrefabInstance: {fileID: 1131876490569524697}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789567015}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -258.79, y: 4.48, z: -261.35}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 184472090}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!108 &789567017
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789567015}
-  m_Enabled: 1
-  serializedVersion: 8
-  m_Type: 2
-  m_Color: {r: 0.99485797, g: 1, b: 0.740566, a: 1}
-  m_Intensity: 3
-  m_Range: 30
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 1
-    m_Resolution: 1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!114 &789567018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789567015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06ade54defdc3c74b9dfce5e753b20ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &804031786
 GameObject:
   m_ObjectHideFlags: 0
@@ -2169,6 +2132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 846431246}
   - component: {fileID: 846431247}
+  - component: {fileID: 846431248}
   m_Layer: 0
   m_Name: Street Light
   m_TagString: Untagged
@@ -2207,7 +2171,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
-    m_Resolution: 1
+    m_Resolution: 0
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -2228,6 +2192,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &846431248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846431245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ade54defdc3c74b9dfce5e753b20ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &875716094
 GameObject:
   m_ObjectHideFlags: 0
@@ -2652,6 +2628,7 @@ GameObject:
   m_Component:
   - component: {fileID: 952915972}
   - component: {fileID: 952915973}
+  - component: {fileID: 952915974}
   m_Layer: 0
   m_Name: Street Light
   m_TagString: Untagged
@@ -2690,7 +2667,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
-    m_Resolution: 1
+    m_Resolution: 0
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -2711,6 +2688,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &952915974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952915971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ade54defdc3c74b9dfce5e753b20ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &957386929
 GameObject:
   m_ObjectHideFlags: 0
@@ -3350,6 +3339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1260923873}
   - component: {fileID: 1260923874}
+  - component: {fileID: 1260923875}
   m_Layer: 0
   m_Name: Street Light
   m_TagString: Untagged
@@ -3388,7 +3378,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
-    m_Resolution: 1
+    m_Resolution: 0
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -3409,6 +3399,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1260923875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260923872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ade54defdc3c74b9dfce5e753b20ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1272073322
 GameObject:
   m_ObjectHideFlags: 0
@@ -3419,6 +3421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1272073323}
   - component: {fileID: 1272073324}
+  - component: {fileID: 1272073325}
   m_Layer: 0
   m_Name: Street Light
   m_TagString: Untagged
@@ -3457,7 +3460,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
-    m_Resolution: 1
+    m_Resolution: 0
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -3478,6 +3481,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1272073325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272073322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ade54defdc3c74b9dfce5e753b20ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1331641684
 GameObject:
   m_ObjectHideFlags: 0
@@ -3488,6 +3503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1331641685}
   - component: {fileID: 1331641686}
+  - component: {fileID: 1331641687}
   m_Layer: 0
   m_Name: Street Light
   m_TagString: Untagged
@@ -3526,7 +3542,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
-    m_Resolution: 1
+    m_Resolution: 0
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -3547,6 +3563,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1331641687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331641684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ade54defdc3c74b9dfce5e753b20ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1334625741
 GameObject:
   m_ObjectHideFlags: 0
@@ -3663,8 +3691,8 @@ MonoBehaviour:
   selectedWeapon: 0
   flashlight: {fileID: 831707581}
   startWeapons:
-  - {fileID: 11400000, guid: 97af0a8f7c7e04b4896988ef568aa7da, type: 2}
-  - {fileID: 11400000, guid: 97af0a8f7c7e04b4896988ef568aa7da, type: 2}
+  - {fileID: 11400000, guid: 6f0f1821f3ae76340a69dafb77de7b5f, type: 2}
+  - {fileID: 11400000, guid: ee3264ab334b369429de2ac4284bb5b6, type: 2}
 --- !u!143 &1334625747
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3693,6 +3721,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1400503250}
   - component: {fileID: 1400503251}
+  - component: {fileID: 1400503252}
   m_Layer: 0
   m_Name: Street Light
   m_TagString: Untagged
@@ -3731,7 +3760,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
-    m_Resolution: 1
+    m_Resolution: 0
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -3752,6 +3781,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1400503252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400503249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ade54defdc3c74b9dfce5e753b20ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1401477454
 GameObject:
   m_ObjectHideFlags: 0
@@ -4176,6 +4217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1610691878}
   - component: {fileID: 1610691879}
+  - component: {fileID: 1610691880}
   m_Layer: 0
   m_Name: Street Light
   m_TagString: Untagged
@@ -4214,7 +4256,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
-    m_Resolution: 1
+    m_Resolution: 0
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -4235,6 +4277,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1610691880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610691877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ade54defdc3c74b9dfce5e753b20ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1676596209
 GameObject:
   m_ObjectHideFlags: 0
@@ -4320,6 +4374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1693776217}
   - component: {fileID: 1693776218}
+  - component: {fileID: 1693776219}
   m_Layer: 0
   m_Name: Street Light
   m_TagString: Untagged
@@ -4358,7 +4413,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
-    m_Resolution: 1
+    m_Resolution: 0
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -4379,6 +4434,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1693776219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693776216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ade54defdc3c74b9dfce5e753b20ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1716637408
 GameObject:
   m_ObjectHideFlags: 0
@@ -4630,6 +4697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1904466580}
   - component: {fileID: 1904466581}
+  - component: {fileID: 1904466582}
   m_Layer: 0
   m_Name: Street Light
   m_TagString: Untagged
@@ -4668,7 +4736,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
-    m_Resolution: 1
+    m_Resolution: 0
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -4689,6 +4757,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1904466582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904466579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ade54defdc3c74b9dfce5e753b20ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1918565004
 GameObject:
   m_ObjectHideFlags: 0
@@ -5241,6 +5321,75 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094400645}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1131876490569524697
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 184472090}
+    m_Modifications:
+    - target: {fileID: 1131876491157369854, guid: e4a07522d4138e54d8d464c0327db394,
+        type: 3}
+      propertyPath: m_Name
+      value: Street Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131876491157369841, guid: e4a07522d4138e54d8d464c0327db394,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -258.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131876491157369841, guid: e4a07522d4138e54d8d464c0327db394,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131876491157369841, guid: e4a07522d4138e54d8d464c0327db394,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -261.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131876491157369841, guid: e4a07522d4138e54d8d464c0327db394,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131876491157369841, guid: e4a07522d4138e54d8d464c0327db394,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131876491157369841, guid: e4a07522d4138e54d8d464c0327db394,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131876491157369841, guid: e4a07522d4138e54d8d464c0327db394,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131876491157369841, guid: e4a07522d4138e54d8d464c0327db394,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131876491157369841, guid: e4a07522d4138e54d8d464c0327db394,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131876491157369841, guid: e4a07522d4138e54d8d464c0327db394,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131876491157369841, guid: e4a07522d4138e54d8d464c0327db394,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e4a07522d4138e54d8d464c0327db394, type: 3}
 --- !u!1001 &4621184839383440903
 PrefabInstance:
   m_ObjectHideFlags: 0

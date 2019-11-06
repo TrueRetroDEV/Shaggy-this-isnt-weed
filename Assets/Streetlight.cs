@@ -18,6 +18,6 @@ public class Streetlight : MonoBehaviour {
     }
 
     void LateUpdate() {
-        light.enabled = (((CameraManager.Instance.MainCamera.transform.position - transform.position).sqrMagnitude) * (CameraManager.Instance.MainCamera.orthographicSize / 10)) < ((light.range / 2) * (light.range * 2));
+        light.enabled = ((((Player.Instance.transform.position - transform.position).sqrMagnitude) * (CameraManager.Instance.MainCamera.orthographicSize / 10))) < ((light.range * 2) * (light.range * 2));
     }
 }
