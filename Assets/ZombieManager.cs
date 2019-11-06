@@ -20,7 +20,7 @@ public class ZombieManager : MonoBehaviour
             SpawnZombie(zombieTypes[Random.Range(0, zombieTypes.Length - 1)], Player.Instance.transform.position + RandomDirection() * 60.0f);
 
             if (DayNightCycle.Instance.progress < 0.5f) {
-                spawnTimer = 3.0f;
+                spawnTimer = 1.0f;
             }
             else {
                 spawnTimer = 1.0f;

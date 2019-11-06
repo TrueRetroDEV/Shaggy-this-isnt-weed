@@ -41,6 +41,7 @@ public class Zombie : BHealth {
 
         UpdateTarget();
     }
+
     void UpdateTarget() {
         navMeshAgent.destination = target;
     }
@@ -79,7 +80,6 @@ public class Zombie : BHealth {
             SetTarget(Player.Instance.transform.position);
 
         }
-
     }
 
 }
